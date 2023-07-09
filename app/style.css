@@ -1,0 +1,25 @@
+.nav-container * {
+  cursor: pointer;
+}
+.nav-container ul li {
+  color: #989898;
+  transition: color 100ms ease-in-out;
+}
+.nav-container ul li:hover {
+  color: #f3f3f3;
+}
+.nav-login {
+  transition: border-color 100ms ease-in-out;
+}
+
+.nav-login:hover {
+  border: 1px solid rgb(162, 162, 184);
+}
+
+.mainbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
