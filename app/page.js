@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
+import FloatingNav from "@/components/FloatingNav";
 import "./style.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Nav = () => (
   <div className="nav-container flex w-full p-4 text-sm items-center h-[10vh]">
@@ -18,8 +18,20 @@ const Nav = () => (
 );
 
 export default function Home() {
+  const [isFloatingNavVisible, setIsFloatingNavVisible] = useState(false);
+
   useEffect(() => {
     const mainbg = document.querySelector(".mainbg");
+
+    window.addEventListener("scroll", (event) => {
+      console.log(mainbg.getBoundingClientRect().top);
+      if (mainbg.getBoundingClientRect().top < -360) {
+        setIsFloatingNavVisible(true);
+      } else {
+        setIsFloatingNavVisible(false);
+      }
+    });
+
     const colors = ["gray", "lightgray", "darkgray", "silver"]; // Predefined colors
 
     for (let i = 0; i < 100; i++) {
@@ -39,15 +51,17 @@ export default function Home() {
     const randomIndex = Math.floor(Math.random() * colorArray.length);
     return colorArray[randomIndex];
   }
+
   return (
-    <main className="bg-[#18181A] flex min-h-screen flex-col items-center ">
-      <div className="mainbg"></div>
+    <main className="mainbg h-[200vh] bg-[#18181A] flex flex-col items-center">
       <Nav />
+      <FloatingNav isVisible={isFloatingNavVisible} />
       <div className="w-full h-[90vh] flex justify-center">
         <div className="text-8xl mt-32 w-1/2 text-center leading-[8rem] font-extrabold">
           Your Personal AI Co-Pilot
         </div>
       </div>
+      <div className="min-h-screen h-screen w-full"></div>
     </main>
   );
 }

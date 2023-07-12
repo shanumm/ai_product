@@ -1,0 +1,23 @@
+.floatingNav {
+  transition: all 800ms ease-in-out;
+  transform: translateY(-200px);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navShow {
+  transform: translateY(30px);
+}
+.navShow > ul > li {
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+.navShow > ul > li:not(:last-child):hover {
+  color: #d0d0d0;
+}
+.navShow > ul > li:last-child:hover {
+  border: 1px solid rgba(255, 255, 255, 0.501);
+
+}
