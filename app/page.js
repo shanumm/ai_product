@@ -4,6 +4,7 @@ import "./style.css";
 import { useEffect, useState } from "react";
 import Modal from "@/components/Modal";
 import { getRandomColor } from "@/helper/functions";
+import { characters } from "@/helper/characters";
 
 const cookieModalContent = {
   heading: "This website uses cookies.",
@@ -60,6 +61,26 @@ export default function Home() {
     setIsCookieModalOpen(false);
   };
 
+  const CharPill = ({ name, i }) => {
+    const vibrantColors = [
+      "#FF5733",
+      "#FFC300",
+      "#FF33FF",
+      "#33FF99",
+      "#33CCFF",
+      "#FF66CC",
+      "#66FF33",
+    ];
+    return (
+      <div
+        className="w-[180px] text-center py-4 rounded-full text-black my-4"
+        style={{ backgroundColor: vibrantColors[i] }}
+      >
+        {name}
+      </div>
+    );
+  };
+
   return (
     <main className="mainbg h-[200vh] bg-[#18181A] flex flex-col items-center">
       <Nav />
@@ -70,18 +91,33 @@ export default function Home() {
         </div>
       </div>
       <div className="min-h-screen flex h-screen w-[80%]">
-        <div className="min-h-screen flex-1 border border-red-500 flex flex-col justify-center">
-          <div className="text-6xl border border-red-500 font-black">
+        <div className="min-h-screen flex-1 flex flex-col justify-center">
+          <div className="text-6xl font-black">
             Empower Your <br /> Journey
           </div>
-          <div className="border border-red-500 my-8">
+          <div className="my-8">
             Unleash the Power of AI Conversations! Experience the best-in-class
             prompts tailored to your needs, ensuring insightful and empowering
             conversations with our AI characters. Unlock their full potential
             and explore the boundless wisdom they have to offer!
           </div>
         </div>
-        <div className="border border-red-400 flex-1"></div>
+        <div className="flex-1 flex items-center justify-center">
+          <div>
+            {characters
+              .filter((_, i) => i <= 2)
+              .map((char, index) => (
+                <CharPill i={index} name={char.name} />
+              ))}
+          </div>
+          <div>
+            {characters
+              .filter((_, i) => i > 2 && i < 7)
+              .map((char, index) => (
+                <CharPill i={index + 3} name={char.name} />
+              ))}
+          </div>
+        </div>
       </div>
       {isCookieModalOpen && (
         <Modal {...cookieModalContent} handleCookieModal={handlCookieModal} />
