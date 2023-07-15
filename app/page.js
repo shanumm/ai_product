@@ -2,6 +2,15 @@
 import FloatingNav from "@/components/FloatingNav";
 import "./style.css";
 import { useEffect, useState } from "react";
+import Modal from "@/components/Modal";
+import { getRandomColor } from "@/helper/functions";
+
+const cookieModalContent = {
+  heading: "This website uses cookies.",
+  content:
+    "This website uses cookies and local storage for performance and personalization. Only essential cookies are turned on by default. ",
+  button: "Accept Cookies",
+};
 
 const Nav = () => (
   <div className="nav-container flex w-full p-4 text-sm items-center h-[10vh]">
@@ -19,12 +28,12 @@ const Nav = () => (
 
 export default function Home() {
   const [isFloatingNavVisible, setIsFloatingNavVisible] = useState(false);
+  const [isCookieModalOpen, setIsCookieModalOpen] = useState(true);
 
   useEffect(() => {
     const mainbg = document.querySelector(".mainbg");
 
     window.addEventListener("scroll", (event) => {
-      console.log(mainbg.getBoundingClientRect().top);
       if (mainbg.getBoundingClientRect().top < -360) {
         setIsFloatingNavVisible(true);
       } else {
@@ -47,21 +56,23 @@ export default function Home() {
     }
   }, []);
 
-  function getRandomColor(colorArray) {
-    const randomIndex = Math.floor(Math.random() * colorArray.length);
-    return colorArray[randomIndex];
-  }
+  const handlCookieModal = (status) => {
+    setIsCookieModalOpen(false);
+  };
 
   return (
     <main className="mainbg h-[200vh] bg-[#18181A] flex flex-col items-center">
       <Nav />
       <FloatingNav isVisible={isFloatingNavVisible} />
       <div className="w-full h-[90vh] flex justify-center">
-        <div className="text-8xl mt-32 w-1/2 text-center leading-[8rem] font-extrabold">
-          Your Personal AI Co-Pilot
+        <div className="titleTextContainer text-8xl mt-32 w-1/2 text-center leading-[8rem] font-extrabold">
+          Your personal ai co-pilot
         </div>
       </div>
       <div className="min-h-screen h-screen w-full"></div>
+      {isCookieModalOpen && (
+        <Modal {...cookieModalContent} handleCookieModal={handlCookieModal} />
+      )}
     </main>
   );
 }

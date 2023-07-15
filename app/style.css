@@ -1,3 +1,8 @@
+.nav-container {
+  transform: translateY(-100px);
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
 .nav-container * {
   cursor: pointer;
 }
@@ -21,4 +26,22 @@
   top: 0;
   left: 0;
   width: 100%;
+}
+.titleTextContainer {
+  animation: fadeIn 600ms ease-in-out forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.modal {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
