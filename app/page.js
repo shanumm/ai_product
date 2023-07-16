@@ -71,12 +71,19 @@ export default function Home() {
       "#FF66CC",
       "#66FF33",
     ];
+
+    // Generate a random rotation angle between -5 and 5 degrees
+    const randomRotation = Math.random() * 20 - 10;
+
     return (
       <div
         className="w-[180px] text-center py-4 rounded-full text-black my-4"
-        style={{ backgroundColor: vibrantColors[i] }}
+        style={{
+          backgroundColor: vibrantColors[i],
+          transform: `rotate(${randomRotation}deg)`,
+        }}
       >
-        {name}
+        {name.charAt(0).toUpperCase() + name.slice(1)}
       </div>
     );
   };
@@ -112,16 +119,17 @@ export default function Home() {
           </div>
           <div>
             {characters
-              .filter((_, i) => i > 2 && i < 7)
+              .filter((_, i) => i > 2 && i < 6)
               .map((char, index) => (
                 <CharPill i={index + 3} name={char.name} />
               ))}
+            <CharPill i={6} name={"Many More....."} />
           </div>
         </div>
       </div>
-      {isCookieModalOpen && (
+      {/* {isCookieModalOpen && (
         <Modal {...cookieModalContent} handleCookieModal={handlCookieModal} />
-      )}
+      )} */}
     </main>
   );
 }
