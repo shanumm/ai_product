@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import Modal from "@/components/Modal";
 import { getRandomColor } from "@/helper/functions";
 import { characters } from "@/helper/characters";
+import UpArrow from "../images/up-arrow.png";
+import Image from "next/image";
+import ScrollReveal from "scrollreveal";
 
 const cookieModalContent = {
   heading: "This website uses cookies.",
@@ -55,6 +58,34 @@ export default function Home() {
     //   star.style.backgroundColor = getRandomColor(colors);
     //   mainbg.appendChild(star);
     // }
+
+    const scrollRevelOptions = {
+      delay: 500, // Animation delay in milliseconds
+      duration: 1000, // Animation duration in milliseconds
+      distance: "20px", // Animation distance
+      easing: "ease-in-out", // Animation easing function
+    };
+
+    ScrollReveal({ reset: true }).reveal(".animateContentBottomTop", {
+      ...scrollRevelOptions,
+      origin: "bottom",
+      interval: 16,
+    });
+    ScrollReveal({ reset: true }).reveal(".animateContentLeftRight", {
+      ...scrollRevelOptions,
+      origin: "left",
+      delay: 800,
+    });
+    ScrollReveal({ reset: true }).reveal(".animateContentRightLeft", {
+      ...scrollRevelOptions,
+      origin: "right",
+      delay: 800,
+    });
+    ScrollReveal({ reset: true }).reveal(".animateContentTopBottom", {
+      ...scrollRevelOptions,
+      origin: "top",
+      delay: 800,
+    });
   }, []);
 
   const handlCookieModal = (status) => {
@@ -63,13 +94,13 @@ export default function Home() {
 
   const CharPill = ({ name, i }) => {
     const vibrantColors = [
-      "#FF5733",
-      "#FFC300",
-      "#FF33FF",
-      "#33FF99",
-      "#33CCFF",
-      "#FF66CC",
-      "#66FF33",
+      "#FF5733", // Red
+      "#FFC300", // Yellow
+      "#FF33FF", // Magenta
+      "#33FF99", // Green
+      "#33CCFF", // Blue
+      "#FF66CC", // Pink
+      "#66FF33", // Lime Green
     ];
 
     // Generate a random rotation angle between -5 and 5 degrees
@@ -89,17 +120,17 @@ export default function Home() {
   };
 
   return (
-    <main className="mainbg h-[200vh] bg-[#18181A] flex flex-col items-center">
+    <main className="mainbg h-[500vh] bg-[#18181A] flex flex-col items-center">
       <Nav />
       <FloatingNav isVisible={isFloatingNavVisible} />
       <div className="w-full h-[90vh] flex justify-center">
-        <div className="titleTextContainer text-8xl mt-32 w-1/2 text-center leading-[8rem] font-extrabold">
+        <div className=" text-8xl mt-32 w-1/2 text-center leading-[8rem] font-extrabold animateContentTopBottom">
           Your personal ai co-pilot
         </div>
       </div>
-      <div className="min-h-screen flex h-screen w-[80%]">
-        <div className="min-h-screen flex-1 flex flex-col justify-center">
-          <div className="text-6xl font-black">
+      <div className="min-h-screen flex h-screen w-[80%] animateContentBottomTop">
+        <div className="min-h-screen flex-1 flex flex-col justify-center text-[#EFECE6] ">
+          <div className="text-6xl font-black font-[Anton]">
             Empower Your <br /> Journey
           </div>
           <div className="my-8">
@@ -107,6 +138,18 @@ export default function Home() {
             prompts tailored to your needs, ensuring insightful and empowering
             conversations with our AI characters. Unlock their full potential
             and explore the boundless wisdom they have to offer!
+          </div>
+          <div className="animateContentLeftRight">
+            <button className="flex items-center py-1 px-4 rounded-xl bg-[#EFECE6] text-black hover:border-[#e0b050] border-2 ">
+              Get Started
+              <Image
+                className="rotate-90 ml-4 object-contain"
+                width="20px"
+                height="20px"
+                src={UpArrow}
+                alt=""
+              />
+            </button>
           </div>
         </div>
         <div className="flex-1 flex items-center justify-center">

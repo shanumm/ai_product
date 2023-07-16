@@ -6,7 +6,7 @@ export default function FloatingNav({ isVisible }) {
     <div
       className={`${
         isVisible ? "navShow" : "navHide"
-      } floatingNav sticky top-0 border w-80 px-4 py-1 rounded-full `}
+      } floatingNav sticky top-0 border w-80 px-4 py-1 rounded-full z-20`}
     >
       <ul className="flex w-full justify-between text-sm items-center">
         <li>Home</li>
