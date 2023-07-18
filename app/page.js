@@ -47,17 +47,17 @@ export default function Home() {
 
     const colors = ["gray", "lightgray", "darkgray", "silver"]; // Predefined colors
 
-    // for (let i = 0; i < 100; i++) {
-    //   const star = document.createElement("div");
-    //   star.style.width = "1px";
-    //   star.style.height = "1px";
-    //   star.style.borderRadius = "50%";
-    //   star.style.position = "absolute";
-    //   star.style.left = Math.random() * 100 + "%";
-    //   star.style.top = Math.random() * 100 + "%";
-    //   star.style.backgroundColor = getRandomColor(colors);
-    //   mainbg.appendChild(star);
-    // }
+    for (let i = 0; i < 150; i++) {
+      const star = document.createElement("div");
+      star.style.width = "1px";
+      star.style.height = "1px";
+      star.style.borderRadius = "50%";
+      star.style.position = "absolute";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.backgroundColor = getRandomColor(colors);
+      mainbg.appendChild(star);
+    }
 
     const scrollRevelOptions = {
       delay: 500, // Animation delay in milliseconds
@@ -74,7 +74,7 @@ export default function Home() {
     ScrollReveal({ reset: true }).reveal(".animateContentLeftRight", {
       ...scrollRevelOptions,
       origin: "left",
-      delay: 800,
+      delay: 1000,
     });
     ScrollReveal({ reset: true }).reveal(".animateContentRightLeft", {
       ...scrollRevelOptions,
@@ -85,6 +85,11 @@ export default function Home() {
       ...scrollRevelOptions,
       origin: "top",
       delay: 800,
+    });
+    ScrollReveal({ reset: true }).reveal(".animateContent", {
+      ...scrollRevelOptions,
+      delay: 2000,
+      scale: 0.9,
     });
   }, []);
 
@@ -102,7 +107,6 @@ export default function Home() {
       "#FF66CC", // Pink
       "#66FF33", // Lime Green
     ];
-
     // Generate a random rotation angle between -5 and 5 degrees
     const randomRotation = Math.random() * 20 - 10;
 
@@ -170,8 +174,33 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="min-h-screen w-full flex items-center justify-between overflow-hidden">
+        <div className="flex-1 text-7xl ml-10">Use AI as advantage</div>
+        <div className="flex-[2] z-10">
+          <div className="flex justify-center testing overflow-hidden">
+            <div className="translate-y-16">
+              <div className="bg-white rounded-2xl w-[150px] h-[200px]"></div>
+              <div className="bg-white rounded-2xl w-[150px] h-[200px] my-4"></div>
+              <div className="bg-white rounded-2xl w-[150px] h-[200px]"></div>
+            </div>
+            <div className="mx-12">
+              <div className="bg-white rounded-2xl w-[200px] h-[100px]"></div>
+              <div className="bg-white rounded-2xl w-[200px] h-[300px] my-4"></div>
+              <div className="bg-white rounded-2xl w-[200px] h-[200px]"></div>
+            </div>
+            <div className="translate-y-10">
+              <div className="bg-white rounded-2xl w-[200px] h-[300px]"></div>
+              <div className="bg-white rounded-2xl w-[200px] h-[250px] my-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* {isCookieModalOpen && (
-        <Modal {...cookieModalContent} handleCookieModal={handlCookieModal} />
+        <Modal
+          className="animateContent"
+          {...cookieModalContent}
+          handleCookieModal={handlCookieModal}
+        />
       )} */}
     </main>
   );

@@ -35,6 +35,33 @@
   transform: translateY(-20px);
 }
 
+.testing {
+  position: relative; /* Add this to establish a new stacking context */
+}
+
+.testing::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background-image: linear-gradient(to top, #18181a 0%, rgba(0, 0, 0, 0) 80%);
+  pointer-events: none;
+  z-index: 1;
+}
+.testing::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #18181a 80%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .modal {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
     rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
