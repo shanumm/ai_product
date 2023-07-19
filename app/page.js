@@ -6,6 +6,14 @@ import Modal from "@/components/Modal";
 import { getRandomColor } from "@/helper/functions";
 import { characters } from "@/helper/characters";
 import UpArrow from "../images/up-arrow.png";
+import TalkingImage from "../images/talkingImage.png";
+import Image1 from "../images/image1.png";
+import Image2 from "../images/image2.png";
+import Image3 from "../images/image3.png";
+import Image4 from "../images/image4.png";
+import Image5 from "../images/image5.png";
+import Image6 from "../images/image6.png";
+import Image7 from "../images/image7.png";
 import Image from "next/image";
 import ScrollReveal from "scrollreveal";
 
@@ -174,23 +182,79 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="min-h-screen w-full flex items-center justify-between overflow-hidden">
-        <div className="flex-1 text-7xl ml-10">Use AI as advantage</div>
+      <div className="min-h-screen flex items-center justify-between overflow-hidden w-[80%]">
+        <div className="flex-1 text-7xl">
+          <div className="font-black font-[Anton]">Use AI as advantage</div>
+          <div className="text-base text-[#c7c7c7] mt-8">
+            Unlock a Multiverse of AI Personalities: engage with virtual
+            companions across limitless realities. Immerse yourself in an
+            unparalleled interactive experience: unleash creativity, learn, and
+            be inspired. Welcome to the future of conversations: meet your
+            virtual AI companions - your gateway to infinite adventures!
+          </div>
+        </div>
         <div className="flex-[2] z-10">
           <div className="flex justify-center testing overflow-hidden">
             <div className="translate-y-16">
-              <div className="bg-white rounded-2xl w-[150px] h-[200px]"></div>
-              <div className="bg-white rounded-2xl w-[150px] h-[200px] my-4"></div>
-              <div className="bg-white rounded-2xl w-[150px] h-[200px]"></div>
+              <div className="bg-[#2c292980] rounded-2xl w-[150px] h-[200px]">
+                <Image
+                  src={TalkingImage}
+                  className="object-contain w-[70%] m-auto h-full"
+                />
+              </div>
+              <div className="bg-[#2c292980] rounded-2xl w-[150px] h-[200px] my-4">
+                {" "}
+                <Image
+                  src={Image1}
+                  className="object-contain w-[70%] m-auto h-full"
+                />
+              </div>
+              <div className="bg-[#2c292980] rounded-2xl w-[150px] h-[200px]">
+                {" "}
+                <Image
+                  src={Image2}
+                  className="object-contain w-[70%] m-auto h-full"
+                />
+              </div>
             </div>
             <div className="mx-12">
-              <div className="bg-white rounded-2xl w-[200px] h-[100px]"></div>
-              <div className="bg-white rounded-2xl w-[200px] h-[300px] my-4"></div>
-              <div className="bg-white rounded-2xl w-[200px] h-[200px]"></div>
+              <div className="bg-[#2c292980] rounded-2xl w-[200px] h-[100px]">
+                {" "}
+                <Image
+                  src={Image3}
+                  className="object-contain w-[70%] m-auto h-full"
+                />
+              </div>
+              <div className="bg-[#2c292980] rounded-2xl w-[200px] h-[300px] my-4">
+                {" "}
+                <Image
+                  src={Image4}
+                  className="object-contain w-[70%] m-auto h-full"
+                />
+              </div>
+              <div className="bg-[#2c292980] rounded-2xl w-[200px] h-[200px]">
+                {" "}
+                <Image
+                  src={Image5}
+                  className="object-contain w-[70%] m-auto h-full"
+                />
+              </div>
             </div>
             <div className="translate-y-10">
-              <div className="bg-white rounded-2xl w-[200px] h-[300px]"></div>
-              <div className="bg-white rounded-2xl w-[200px] h-[250px] my-4"></div>
+              <div className="bg-[#2c292980] rounded-2xl w-[200px] h-[300px]">
+                {" "}
+                <Image
+                  src={Image6}
+                  className="object-contain w-[70%] m-auto h-full"
+                />
+              </div>
+              <div className="bg-[#2c292980] rounded-2xl w-[200px] h-[250px] my-4">
+                {" "}
+                <Image
+                  src={Image7}
+                  className="object-contain w-[70%] m-auto h-full"
+                />
+              </div>
             </div>
           </div>
         </div>
